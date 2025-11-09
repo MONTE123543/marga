@@ -196,19 +196,18 @@
         /* --- MENSAJE POST-VIDEO --- */
         .post-message {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5rem;
-            text-align: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 101;
             display: none;
             animation: zoomIn 1s ease-out;
         }
 
         @keyframes zoomIn {
-            from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* --- BOTÓN DE REPETIR --- */
@@ -232,6 +231,16 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
+        /* --- CONTENEDOR PARA EL MENSAJE POST-VIDEO --- */
+        .message-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             h1 {
@@ -247,7 +256,7 @@
                 font-size: 1rem;
             }
             
-            .post-message {
+            .message-container {
                 font-size: 2rem;
             }
             
@@ -260,9 +269,10 @@
 </head>
 <body>
     <!-- VIDEO DE FONDO PARA LA PORTADA (EN BUCLE) -->
-    <!-- Puedes cambiar este video modificando el src -->
+    <!-- Primer video de Google Drive -->
     <video class="background-video" autoplay muted loop>
-        <source src="videoportada (1).mp4" type="video/mp4">
+        <source src="https://drive.google.com/uc?export=download&id=1s7MK8B90PvsPapriO39NztuVzLAM61Vk
+        " type="video/mp4">
     </video>
     
     <!-- CAPA OSCURA SOBRE EL VIDEO PARA MEJOR LEGIBILIDAD -->
@@ -299,24 +309,26 @@
             Asegúrate de añadir "?autoplay=1&controls=0&showinfo=0&modestbranding=1" al final de la URL.
         -->
         <video id="birthdayVideo" autoplay>
-            <source src="video.mp4" type="video/mp4">
+            <source src="https://drive.google.com/uc?export=download&id=1eflyBpWLqWlWMkwPDf1cafYujMcZxYKX
+            " type="video/mp4">
         </video>
     </div>
 
     <!-- MENSAJE POST-VIDEO -->
     <div class="post-message" id="postMessage">
         <!-- VIDEO DE FONDO PARA EL MENSAJE POST-VIDEO (EN BUCLE) -->
-        <!-- Puedes cambiar este video modificando el src -->
+        <!-- Segundo video de Google Drive -->
         <video class="background-video" autoplay muted loop>
-            <source src="videoportada (1).mp4" type="video/mp4">
+            <source src="https://drive.google.com/uc?export=download&id=1s7MK8B90PvsPapriO39NztuVzLAM61Vk
+            " type="video/mp4">
         </video>
         
         <!-- CAPA OSCURA SOBRE EL VIDEO PARA MEJOR LEGIBILIDAD -->
         <div class="overlay"></div>
         
         <!-- CONTENIDO DEL MENSAJE -->
-        <div style="position: relative; z-index: 10;">
-            <div>🎊 ¡Te queremos mucho! 💖</div>
+        <div class="message-container">
+            <div style="font-size: 2.5rem;">🎊 ¡Te queremos mucho! 💖</div>
             <button class="repeat-button" id="repeatButton">Ver de nuevo 🔄</button>
         </div>
     </div>
